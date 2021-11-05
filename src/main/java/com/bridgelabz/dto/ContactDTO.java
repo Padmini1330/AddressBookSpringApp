@@ -1,6 +1,8 @@
 package com.bridgelabz.dto;
 
-public class ContactDTO 
+import lombok.Data;
+
+public @Data class ContactDTO 
 {
 	public String firstName;
 	public String lastName;
@@ -21,12 +23,4 @@ public class ContactDTO
 		this.zipCode = zipCode;
 		this.email = email;
 	}
-
-	@Override
-	public String toString() 
-	{
-		return "ContactDTO [firstName=" + firstName + ", lastName=" + lastName + ", phoneNumber=" + phoneNumber
-				+ ", city=" + city + ", state=" + state + ", zipCode=" + zipCode + ", email=" + email + "]";
-	}
-
 }
