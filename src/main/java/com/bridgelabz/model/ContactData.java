@@ -43,9 +43,13 @@ public @Data class ContactData
 	{
 	}
 
-	public ContactData(int contactId, ContactDTO contactDTO) 
+	public ContactData(ContactDTO contactDTO) 
 	{
-		this.contactId = contactId;
+		this.updateContactData(contactDTO);
+	}
+
+	public ContactData updateContactData(ContactDTO contactDTO) 
+	{
 		this.firstName = contactDTO.firstName;
 		this.lastName = contactDTO.lastName;
 		this.phoneNumber = contactDTO.phoneNumber;
@@ -53,5 +57,6 @@ public @Data class ContactData
 		this.state = contactDTO.state;
 		this.zipCode = contactDTO.zipCode;
 		this.email = contactDTO.email;
+		return this;
 	}
 }
