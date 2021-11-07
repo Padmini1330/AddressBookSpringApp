@@ -21,8 +21,8 @@ public class AddressBookExceptionHandler
 			MethodArgumentNotValidException exception) 
 	{
 		List<ObjectError> errorList = exception.getBindingResult().getAllErrors();
-		List<String> errMsg = errorList.stream().map(objerr -> objerr.getDefaultMessage()).collect(Collectors.toList());
-		ResponseDTO response = new ResponseDTO("Exception while processing REST request", errMsg);
+		List<String> errorMsg = errorList.stream().map(objerr -> objerr.getDefaultMessage()).collect(Collectors.toList());
+		ResponseDTO response = new ResponseDTO("Exception while processing REST request", errorMsg);
 		return new ResponseEntity<ResponseDTO>(response, HttpStatus.BAD_REQUEST);
 	}
 	
