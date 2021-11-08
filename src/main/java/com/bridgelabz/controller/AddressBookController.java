@@ -2,6 +2,7 @@ package com.bridgelabz.controller;
 
 import java.util.List;
 
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,6 +47,30 @@ public class AddressBookController
 		return new ResponseEntity<ResponseDTO>(response, HttpStatus.OK);
 	}
 
+	@GetMapping("/city/{city}")
+	public ResponseEntity<ResponseDTO> getContactByCity(@PathVariable String city) 
+	{
+		List<ContactData> contactList = addressBookService.getContactbyCity(city);
+		ResponseDTO response = new ResponseDTO("successfully found contacts by city!", contactList);
+		return new ResponseEntity<ResponseDTO>(response, HttpStatus.OK);
+	}
+	
+	@GetMapping("/state/{state}")
+	public ResponseEntity<ResponseDTO> getContactByState(@PathVariable String state) 
+	{
+		List<ContactData> contactList = addressBookService.getContactbyState(state);
+		ResponseDTO response = new ResponseDTO("successfully found contacts by state!", contactList);
+		return new ResponseEntity<ResponseDTO>(response, HttpStatus.OK);
+	}
+	
+	@GetMapping("/zipcode/{zipCode}")
+	public ResponseEntity<ResponseDTO> getContactByZipCode(@PathVariable String zipCode) 
+	{
+		List<ContactData> contactList = addressBookService.getContactbyZipCode(zipCode);
+		ResponseDTO response = new ResponseDTO("successfully found contacts by zipcode!", contactList);
+		return new ResponseEntity<ResponseDTO>(response, HttpStatus.OK);
+	}
+	
 	@PostMapping("/create")
 	public ResponseEntity<ResponseDTO> createContactData(@Valid @RequestBody ContactDTO contactDTO) 
 	{
