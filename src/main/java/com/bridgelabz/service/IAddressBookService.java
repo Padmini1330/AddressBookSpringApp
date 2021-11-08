@@ -11,6 +11,12 @@ public interface IAddressBookService
 	 	
 	    ContactData getContactById(int contactId);
 	    
+	    List<ContactData> getContactbyCity(String city);
+	    
+	    List<ContactData> getContactbyState(String state);
+	    
+	    List<ContactData> getContactbyZipCode(String zipCode);
+	    
 	    ContactData createContact(ContactDTO contactDTO);
 	    
 	    ContactData updateContact(int contactId,ContactDTO contactDTO);
