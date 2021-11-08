@@ -2,6 +2,7 @@ package com.bridgelabz.service;
 
 import java.util.ArrayList;
 
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +30,23 @@ public class AddressBookService implements IAddressBookService
 		return contactRepository.findById(contactId).orElseThrow(() -> new AddressBookException("Contact not found!"));
 	}
 
+	@Override
+	public List<ContactData> getContactbyCity(String city) 
+	{
+		return contactRepository.findContactByCity(city);
+	}
+	
+	@Override
+	public List<ContactData> getContactbyState(String state) 
+	{
+		return contactRepository.findContactByState(state);
+	}
+	
+	@Override
+	public List<ContactData> getContactbyZipCode(String zipCode) 
+	{
+		return contactRepository.findContactByZipCode(zipCode);
+	}
 	@Override
 	public ContactData createContact(ContactDTO contactDTO) 
 	{
